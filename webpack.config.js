@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: [
-      'script!node_modules/jquery/dist/jquery.min.js',
+      'script!jquery/dist/jquery.min.js',
       'script!foundation-sites/dist/foundation.min.js',
       __dirname +'/app/app.jsx',
     ],
@@ -10,7 +10,7 @@ module.exports = {
         path: __dirname,
         filename: './public/bundle.js',
     },
-    external:{
+    externals:{
       jquery: 'jQuery',
     },
     plugins: [
@@ -31,6 +31,7 @@ module.exports = {
           WeatherMessage: 'app/components/WeatherMessage.jsx',
           openWeatherMap: 'api/openWeatherMap.jsx',
           ErrorModal: 'app/components/ErrorModal.jsx',
+          AppStyle: 'app/styles/app.css'
         },
         extensions: ['', '.js', '.jsx'],
     },
@@ -44,5 +45,5 @@ module.exports = {
         exclude: /(node_modules|bower_components)/
       }]
     },
-    devtool: 'cheap-module-eval-source-map'
+    devtool: 'inline-source-map'
 };
