@@ -1,9 +1,24 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: __dirname +'/app/app.jsx',
+    entry: [
+      'script!node_modules/jquery/dist/jquery.min.js',
+      'script!foundation-sites/dist/foundation.min.js',
+      __dirname +'/app/app.jsx',
+    ],
     output: {
         path: __dirname,
         filename: './public/bundle.js',
     },
+    external:{
+      jquery: 'jQuery',
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        '$': 'jquery',
+        'jQuery': 'jquery',
+      })
+    ],
     resolve: {
         root: __dirname,
         alias:{
