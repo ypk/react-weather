@@ -11,7 +11,7 @@ var About = (props) => {
           <a href="https://facebook.github.io/react">React</a>
         </li>
         <li>
-          <a href="http://www.openweathermap.org/">Open Weather Map</a>
+          <a href="https://www.apixu.com/">Apixu Weather API</a>
         </li>
       </ul>
     </div>
