@@ -7,9 +7,8 @@ const APIXU_WEATHER_MAP_API_URL = 'http://api.apixu.com/v1/current.json?key=';
 const APIXU_WEATHER_MAP_API_KEY = '2b31aebdb6eb4c1e8ae123158162211';
 
 module.exports = {
-  getTemp: function(location){
+  getTemperatureByLocation: function(location){
     var encodedLocation = encodeURIComponent(location);
-    //var api_url = `${OPEN_WEATHER_MAP_API_URL}&appid=${OPEN_WEATHER_MAP_API_KEY}&q=${encodedLocation}`;
     var api_url = `${APIXU_WEATHER_MAP_API_URL}${APIXU_WEATHER_MAP_API_KEY  }&q=${encodedLocation}`;
     return axios.get(api_url).then(function(response){
       if(response.data.error && response.data.error.message){
