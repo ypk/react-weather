@@ -14,7 +14,7 @@ module.exports = {
       if(response.data.error && response.data.error.message){
         throw new Error(response.data.error.message);
       }else{
-        return response.data.current.temp_c;
+        return response.data;
       }
     },function(response){
       throw new Error(response.data.message);

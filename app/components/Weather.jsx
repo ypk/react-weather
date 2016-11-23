@@ -11,8 +11,12 @@ var Weather = React.createClass({
     },
     handleSearch: function(location) {
         this.setState({location: undefined, temp: undefined, isLoading: true, errorMessage: undefined});
-        WeatherMapAPI.getTemperatureByLocation(location).then((temp) => {
-            this.setState({location: location, temperature: temp, isLoading: false})
+        WeatherMapAPI.getTemperatureByLocation(location).then((data) => {
+          if(data){
+            var temp = data.current.temp_c;
+            var location = data.location.name+", "+data.location.country;
+            this.setState({location: location, temperature: temp, isLoading: false});            
+          }
         }, (e) => {
             this.setState({isLoading: false, errorMessage: e.message});
         });
